@@ -35,11 +35,15 @@
   "Items": [
     {
       "Name": "Book",
-      "Weight":  10
+      "Weight": 10
     },
     {
       "Name": "Lantern",
-      "Weight":  20
+      "Weight": 20
+    },
+    {
+      "Name": "Sword",
+      "Weight": 50
     }
   ]
 }

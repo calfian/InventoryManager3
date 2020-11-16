@@ -63,6 +63,19 @@ namespace InventoryManager.Winforms.Forms
                 }
             }
         }
+        //Add Item Button v
+        private void button2_Click(object sender, EventArgs e)
+        {
+            using (AddItemForm addItemForm = new AddItemForm())
+            {
+                if(addItemForm.ShowDialog()== DialogResult.OK)
+                {
+                    Item item = new Item { Name = addItemForm.ItemName };
+                    ViewModel.Items.Add(item);
+                }
+            }
+        }
+
 
         private void DeletePlayerButton_Click(object sender, System.EventArgs e)
         {
@@ -70,6 +83,15 @@ namespace InventoryManager.Winforms.Forms
             {
                 ViewModel.Players.Remove((Player)playersListBox.SelectedItem);
                 playersListBox.SelectedItem = ViewModel.Players.FirstOrDefault();
+            }
+        }
+        //Delete Item Button v
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(MessageBox.Show("Delete this item?", AssemblyTitle, MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                ViewModel.Items.Remove((Item)itemsListBox.SelectedItem);
+                itemsListBox.SelectedItem = ViewModel.Items.FirstOrDefault();
             }
         }
 
@@ -114,10 +136,15 @@ namespace InventoryManager.Winforms.Forms
         {
 
         }
-
         private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
